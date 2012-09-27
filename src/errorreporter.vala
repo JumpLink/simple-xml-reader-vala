@@ -23,7 +23,7 @@
 using Gee;
 
 
-public class Valadoc.ErrorReporter : Object {
+public class Sxml.ErrorReporter : Object {
 	private int _warnings = 0;
 	private int _errors = 0;
 

@@ -112,8 +112,8 @@ COMP                  = \
 							--vapidir=$(VAPI_DIR)                     \
 							$(PKG_FLAGS)                              \
 							$(CC_FLAGS)                               \
-							$(SRC_FILES)                              \
-							--enable-experimental                     \
+							$(SRC_FILES)#                              \
+							#--enable-experimental                     \
 # Alle g-ir-compiler obtionen
 TYPELIB_COMP              = \
 							--shared-library=$(SHARED_LIBRARY_TARGET) \

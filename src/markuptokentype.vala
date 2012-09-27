@@ -21,7 +21,7 @@
  */
 
 
-public enum Valadoc.MarkupTokenType {
+public enum Sxml.MarkupTokenType {
 	NONE,
 	COMMENT,
 	START_ELEMENT,

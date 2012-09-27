@@ -28,7 +28,7 @@ using Gee;
 /**
  * Simple reader for a subset of XML.
  */
-public class Valadoc.MarkupReader : Object {
+public class Sxml.MarkupReader : Object {
 	public string filename {
 		private set;
 		get;
@@ -65,7 +65,7 @@ public class Valadoc.MarkupReader : Object {
 
 		lines = content.split ("\n");
 		begin = content;
-		end = begin + content.size ();
+		end = begin + content.length;
 		current = begin;
 
 		column = 1;
@@ -101,6 +101,13 @@ public class Valadoc.MarkupReader : Object {
 
 	public string? get_attribute (string attr) {
 		return attributes[attr];
+	}
+	public void print_attributes() {
+		print("attributes: ");
+		foreach (var key in attributes.keys) {
+			print("%s:%s\n", key, attributes.get (key));
+		}
+		print("\n\n");
 	}
 
 	/*

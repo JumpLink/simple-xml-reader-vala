@@ -3,6 +3,9 @@
 *.lo
 *.o
 
+#other
+core
+
 # Compiled Dynamic libraries
 *.so
 

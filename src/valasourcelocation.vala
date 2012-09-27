@@ -25,7 +25,7 @@ using GLib;
 /**
  * Represents a position in a source file.
  */
-public struct Valadoc.MarkupSourceLocation {
+public struct Sxml.MarkupSourceLocation {
 	public char* pos;
 	public int line;
 	public int column;

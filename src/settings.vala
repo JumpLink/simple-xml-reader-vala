@@ -24,7 +24,7 @@
 /**
  * Contains information about output settings configuration
  */
-public class Valadoc.Settings : Object {
+public class Sxml.Settings : Object {
 	/**
 	 * Output directory/file name.
 	 */

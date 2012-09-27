@@ -1,14 +1,23 @@
-using Valadoc;
+using Sxml;
+// other example: http://git.gnome.org/browse/valadoc/tree/src/libvaladoc/importer/girdocumentationimporter.vala
+
+public class Sxml.Test : Object {
+
+}
+
 void main () {
 	MarkupTokenType current_token;
 	MarkupSourceLocation begin;
 	MarkupSourceLocation end;
-	Valadoc.ErrorReporter reporter = new ErrorReporter();
-	Valadoc.MarkupReader reader = new MarkupReader ("test/testmap.tmx", reporter);
+	ErrorReporter reporter = new ErrorReporter();
+	MarkupReader reader = new MarkupReader ("test/testmap.tmx", reporter);
+
 	current_token = reader.read_token (out begin, out end);
-	print(@"$current_token \n");
-	current_token = reader.read_token (out begin, out end);
-	print(@"$current_token \n");
-	current_token = reader.read_token (out begin, out end);
-	print(@"$current_token \n");
+	while (current_token != MarkupTokenType.EOF) {
+		current_token = reader.read_token (out begin, out end);
+		if(reader.name != "tile") {
+			print(@"$current_token, name: %s, content: %s\n",reader.name, reader.content);
+			reader.print_attributes();
+		}
+	}
 }
