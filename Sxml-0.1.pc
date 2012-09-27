@@ -1,0 +1,15 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+datarootdir=${prefix}/share
+datadir=${datarootdir}
+
+
+Name: Simple XML
+Description: Very Simple XML parser
+Version: 0.1
+Requires: gee-1.0
+Libs: -L${libdir} -lsxml
+Cflags: -I${includedir}/Sxml-0.1
+~                                             

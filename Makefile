@@ -175,6 +175,7 @@ install:
 	@sudo cp -u ./$(VAPI_TARGET_FILE) /usr/share/vala/vapi/$(VAPI_TARGET)				# .vapi
 	@sudo cp -u ./$(GIR_TARGET_FILE) /usr/share/gir-1.0/$(GIR_TARGET)					# .gir
 	@sudo cp -u ./$(TYPELIB_TARGET_FILE) /usr/lib/girepository-1.0/$(TYPELIB_TARGET)	# .typelib
+	@sudo cp -u ./$(LIBRARY).pc /usr/lib/pkgconfig/$(LIBRARY).pc	                    # .pc //TODO fixme for debian
 ## * make unstall: Programm deinstallieren
 unstall:
 	@sudo rm /usr/lib/$(SHARED_LIBRARY_TARGET)
