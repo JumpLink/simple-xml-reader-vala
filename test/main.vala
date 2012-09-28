@@ -1,4 +1,4 @@
-using Sxml;
+using Sxml;	
 // other example: http://git.gnome.org/browse/valadoc/tree/src/libvaladoc/importer/girdocumentationimporter.vala
 
 public class Sxml.Test : Object {

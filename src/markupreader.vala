@@ -102,13 +102,6 @@ public class Sxml.MarkupReader : Object {
 	public string? get_attribute (string attr) {
 		return attributes[attr];
 	}
-	public void print_attributes() {
-		print("attributes: ");
-		foreach (var key in attributes.keys) {
-			print("%s:%s\n", key, attributes.get (key));
-		}
-		print("\n\n");
-	}
 
 	/*
 	 * Returns a copy of the current attributes.
@@ -121,6 +114,14 @@ public class Sxml.MarkupReader : Object {
 			result.set (key, attributes.get (key));
 		}
 		return result;
+	}
+	
+	public void print_attributes() {
+		print("attributes: ");
+		foreach (var key in attributes.keys) {
+			print("%s:%s\n", key, attributes.get (key));
+		}
+		print("\n\n");
 	}
 
 	private string read_name () {
