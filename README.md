@@ -28,3 +28,8 @@ void main () {
         }
 }
 ```
+
+Applied examples
+
+ * [girdocumentationimporter.vala](http://git.gnome.org/browse/valadoc/tree/src/libvaladoc/importer/girdocumentationimporter.vala) from valadoc
+ * [Data Reader Classes](https://github.com/JumpLink/HMWorld-Data/tree/master/src/XML) from HMWorld-Data
