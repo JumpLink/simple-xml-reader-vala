@@ -1,12 +1,16 @@
-using Sxml;	
-// other example: http://git.gnome.org/browse/valadoc/tree/src/libvaladoc/importer/girdocumentationimporter.vala
+using Sxml;
 
-public class Sxml.Example : DataReader {
+public class Sxml.Example : DataReader, Object {
+	protected MarkupTokenType current_token {get; set;}
+	protected MarkupSourceLocation begin {get; set;}
+	protected MarkupSourceLocation end {get; set;}
+	protected XMLStreamReader reader {get; set;}
+	public string path { get; construct set; }
+
 	public Example (string path, string filename) {
 		reader = new XMLStreamReader (path+filename);
 	}
 	public void parse() {
-		//current_token = reader.read_token (out begin, out end);
 		next();
 		while (current_token != MarkupTokenType.EOF) {
 			next();
@@ -19,12 +23,6 @@ public class Sxml.Example : DataReader {
 }
 
 void main () {
-	// MarkupTokenType current_token;
-	// MarkupSourceLocation begin;
-	// MarkupSourceLocation end;
-	// XMLStreamReader reader = new XMLStreamReader ("test/testmap.tmx");
 	Example xml = new Example("test/","testmap.tmx");
 	xml.parse();
-
-
 }
