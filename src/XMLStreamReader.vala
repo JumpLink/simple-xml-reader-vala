@@ -19,6 +19,9 @@
  *
  * Author:
  * 	Jürg Billeter <j@bitron.ch>
+ *
+ * Fork:
+ *  Pascal Garber <pascal.garber@gmail.com>
  */
 
 using GLib;
@@ -28,7 +31,7 @@ using Gee;
 /**
  * Simple reader for a subset of XML.
  */
-public class Sxml.MarkupReader : Object {
+public class Sxml.XMLStreamReader : Object {
 	public string filename {
 		private set;
 		get;
@@ -57,11 +60,8 @@ public class Sxml.MarkupReader : Object {
 	private Map<string, string> attributes = new HashMap<string, string> (str_hash, str_equal);
 	private bool empty_element;
 
-	private ErrorReporter reporter;
-
-	public MarkupReader.from_string (string filename, string content, ErrorReporter reporter) {
+	public XMLStreamReader.from_string (string filename, string content) {
 		this.filename = filename;
-		this.reporter = reporter;
 
 		lines = content.split ("\n");
 		begin = content;
@@ -72,9 +72,8 @@ public class Sxml.MarkupReader : Object {
 		line = 1;
 	}
 
-	public MarkupReader (string filename, ErrorReporter reporter) {
+	public XMLStreamReader (string filename) {
 		this.filename = filename;
-		this.reporter = reporter;
 
 		try {
 			mapped_file = new MappedFile (filename, false);
@@ -87,7 +86,7 @@ public class Sxml.MarkupReader : Object {
 			line = 1;
 			column = 1;
 		} catch (FileError e) {
-			reporter.simple_error ("%s: error: Unable to map file: %s", filename, e.message);
+			error ("%s: error: Unable to map file: %s", filename, e.message);
 		}
 	}
 
@@ -135,7 +134,7 @@ public class Sxml.MarkupReader : Object {
 			if (u != (unichar) (-1)) {
 				current += u.to_utf8 (null);
 			} else {
-				reporter.simple_error ("%s:%d: error: invalid UTF-8 character", filename, line);
+				error ("%s:%d: error: invalid UTF-8 character", filename, line);
 			}
 		}
 		if (current == begin) {
@@ -264,7 +263,7 @@ public class Sxml.MarkupReader : Object {
 		while (current < end && current[0] != end_char) {
 			unichar u = ((string) current).get_char_validated ((long) (end - current));
 			if (u == (unichar) (-1)) {
-				reporter.simple_error ("%s:%d: error: invalid UTF-8 character", filename, line);
+				error ("%s:%d: error: invalid UTF-8 character", filename, line);
 			} else if (u == '&') {
 				char* next_pos = current + u.to_utf8 (null);
 				if (((string) next_pos).has_prefix ("amp;")) {
