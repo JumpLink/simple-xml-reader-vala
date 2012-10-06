@@ -42,6 +42,12 @@ void main () {
 }
 ```
 
+Compile
+```
+valac --pkg gee-1.0 --pkg Sxml-0.1 example.vala -o example.o
+./example.o
+```
+
 Applied examples
 
  * [girdocumentationimporter.vala](http://git.gnome.org/browse/valadoc/tree/src/libvaladoc/importer/girdocumentationimporter.vala) from valadoc
