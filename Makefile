@@ -112,8 +112,8 @@ COMP                  = \
 							--vapidir=$(VAPI_DIR)                     \
 							$(PKG_FLAGS)                              \
 							$(CC_FLAGS)                               \
-							$(SRC_FILES)#                              \
-							#--enable-experimental                     \
+							$(SRC_FILES)                              \
+							--enable-experimental                    
 # Alle g-ir-compiler obtionen
 TYPELIB_COMP              = \
 							--shared-library=$(SHARED_LIBRARY_TARGET) \
@@ -122,7 +122,6 @@ TYPELIB_COMP              = \
 # Alle Kombilerobtionen fuer shared-library
 SHARED_LIBRARY_COMP   = \
 							-o $(SHARED_LIBRARY_TARGET_FILE)          \
-							--enable-experimental	           	      \
 							--library=$(LIBRARY)                      \
 							-H $(HEADER_TARGET_FILE)                  \
 							--girdir=$(GIR_DIR)                       \
@@ -133,6 +132,7 @@ SHARED_LIBRARY_COMP   = \
 							-X -shared                                \
 							$(CC_FLAGS)                               \
 							$(SRC_FILES)                              \
+							--enable-experimental	           	      
 
 # STATIC_LIBRARY_COMP = \
 # 							ar                                        \
@@ -148,8 +148,8 @@ TEST_COMP   = \
 							test/main.vala                            \
 							-X lib/$(SHARED_LIBRARY_TARGET)           \
 							-X -I$(LIB_DIR)                           \
-							--enable-experimental                     \
-							-o test.o
+							-o test.o                                 \
+							--enable-experimental                     
 
 DEBUG_COMP   = \
 							-g                                        \
@@ -159,8 +159,8 @@ DEBUG_COMP   = \
 							$(PKG_FLAGS)                              \
 							$(CC_FLAGS)                               \
 							$(SRC_FILES)                              \
-							--enable-experimental                     \
-							test/main.vala
+							test/main.vala                            \
+							--enable-experimental                     
 
 # Targets
 

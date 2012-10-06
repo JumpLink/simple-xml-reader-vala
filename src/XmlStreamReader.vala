@@ -1,4 +1,4 @@
-/* markupreader.vala
+/* XmlStreamReader.vala
  *
  * Copyright (C) 2008-2009  Jürg Billeter
  * Copyright (C) 2011       Florian Brosch
@@ -31,7 +31,7 @@ using Gee;
 /**
  * Simple reader for a subset of XML.
  */
-public class Sxml.XMLStreamReader : Object {
+public class Sxml.XmlStreamReader : Object {
 	public string filename {
 		private set;
 		get;
@@ -60,7 +60,7 @@ public class Sxml.XMLStreamReader : Object {
 	private Map<string, string> attributes = new HashMap<string, string> (str_hash, str_equal);
 	private bool empty_element;
 
-	public XMLStreamReader.from_string (string filename, string content) {
+	public XmlStreamReader.from_string (string filename, string content) {
 		this.filename = filename;
 
 		lines = content.split ("\n");
@@ -72,7 +72,7 @@ public class Sxml.XMLStreamReader : Object {
 		line = 1;
 	}
 
-	public XMLStreamReader (string filename) {
+	public XmlStreamReader (string filename) {
 		this.filename = filename;
 
 		try {

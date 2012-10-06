@@ -6,7 +6,7 @@ public interface Sxml.DataReader : Object {
 	protected abstract MarkupTokenType current_token {get; set;}
 	protected abstract MarkupSourceLocation begin {get; set;}
 	protected abstract MarkupSourceLocation end {get; set;}
-	protected abstract XMLStreamReader reader {get; set;}
+	protected abstract XmlStreamReader reader {get; set;}
 
 	/**
 	 * Path of Data

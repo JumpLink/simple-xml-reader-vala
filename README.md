@@ -18,11 +18,11 @@ public class Sxml.Example : DataReader, Object {
 	protected MarkupTokenType current_token {get; set;}
 	protected MarkupSourceLocation begin {get; set;}
 	protected MarkupSourceLocation end {get; set;}
-	protected XMLStreamReader reader {get; set;}
+	protected XmlStreamReader reader {get; set;}
 	public string path { get; construct set; }
 
 	public Example (string path, string filename) {
-		reader = new XMLStreamReader (path+filename);
+		reader = new XmlStreamReader (path+filename);
 	}
 	public void parse() {
 		next();
