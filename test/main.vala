@@ -15,7 +15,16 @@ public class Sxml.Example : DataReader, Object {
 		while (current_token != MarkupTokenType.EOF) {
 			next();
 			if(reader.name != "tile") {
-				print(@"$current_token, name: %s, content: %s\n",reader.name, reader.content);
+				print(@"$current_token \nname: %s \ncontent: %s\n",reader.name, reader.content);
+				reader.print_attributes();
+			}
+		}
+		reset();
+		next();
+		while (current_token != MarkupTokenType.EOF) {
+			next();
+			if(reader.name != "tile") {
+				print(@"$current_token \nname: %s \ncontent: %s\n",reader.name, reader.content);
 				reader.print_attributes();
 			}
 		}

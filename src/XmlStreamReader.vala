@@ -90,6 +90,12 @@ public class Sxml.XmlStreamReader : Object {
 		}
 	}
 
+	public void reset () {
+		current = begin;
+		column = 1;
+		line = 1;
+	}
+
 	public string? get_line_content (int line_nr) {
 		if (this.lines.length > line_nr) {
 			return this.lines[line_nr];

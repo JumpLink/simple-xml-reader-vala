@@ -21,6 +21,11 @@ public interface Sxml.DataReader : Object {
 		end = _end;
 	}
 
+	protected void reset () {
+		reader.reset ();
+		current_token = MarkupTokenType.NONE;
+	}
+
 	protected bool is_start_element (string name) {
 		if (current_token != MarkupTokenType.START_ELEMENT || reader.name != name) {
 			return false;
@@ -53,5 +58,11 @@ public interface Sxml.DataReader : Object {
 	protected void print_node () {
 		print(reader.name+" ");
 		reader.print_attributes();
+	}
+
+	protected void print_location () {
+		print(@"begin\n-------\npos: $(begin.pos)\nline: $(begin.line)\ncolumn: $(begin.column)\n");
+		print(@"end\n-------\npos: $(end.pos)\nline: $(end.line)\ncolumn: $(end.column)\n");
+		print("\n");
 	}
 }
