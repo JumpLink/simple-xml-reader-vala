@@ -55,3 +55,4 @@ Applied examples
 
 Lizenz
 ======
+GNU GPL v2
