@@ -52,3 +52,6 @@ Applied examples
 
  * [girdocumentationimporter.vala](http://git.gnome.org/browse/valadoc/tree/src/libvaladoc/importer/girdocumentationimporter.vala) from valadoc
  * [Data Reader Classes](https://github.com/JumpLink/librpg/tree/master/src/XML) from librpg
+
+Lizenz
+======
